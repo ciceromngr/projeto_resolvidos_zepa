@@ -57,10 +57,12 @@
     - > para quem vai fazer manutencão demanda um pouco mais de tempo para ler o codigo, e se estivesse indentado/com indentação seria mais rapido para o programador fazer uma leitura mais ampla e rapida do codigo.
 
 ### Em Delphi é possível escrever todo o código em minúsculas?
-- Sim, porque na linguagem pascal ela nao faz diferenciação entre maiúscula e minúscula
+- Sim, porque na linguagem pascal ela nao faz diferenciação entre maiúscula e minúscula.
 
-Algoritmos
-Criar um aplicativo 'Saudações Console'. Assim como o app da aula anterior, teremos três botões para cumprimentos. Dessa vez, vamos exibir a saudação em Console.
-Adicionar no programa ‘saudações’ um botão com rótulo 'Saudação puxa-saco', escrevendo os cumprimentos em linhas diferentes.
-Desafios
-Um amigo meu disse que consegue escrever três palavras diferentes sem tirar a caneta do papel. No caso do nosso programa, o comando de escrita só pode ser chamado uma vez, porém as três mensagens devem ser separadas no console.
+> projeto 01
+
+![SaldacoesPuxaSaco](https://user-images.githubusercontent.com/58851247/172705802-eeac9af9-af48-46b9-986d-e2aac10fe518.PNG)
+
+> Desafio 01
+
+![Desafio](https://user-images.githubusercontent.com/58851247/172705930-24d13564-1a8b-4d89-9003-3146f1e664ef.PNG)
