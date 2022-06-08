@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2022/06/08 14:23:34.420,=C:\Users\cicero.dsn.pack.DESKTOP-K6N27LM\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/06/08 15:52:53.982,D:\GIT\PROJECTS_DELPHI\projeto_resolvidos_zepa\Aula1\Projeto01\src\unSaldacao.pas=C:\Users\cicero.dsn.pack.DESKTOP-K6N27LM\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/06/08 15:52:53.983,D:\GIT\PROJECTS_DELPHI\projeto_resolvidos_zepa\Aula1\Projeto01\src\unSaldacao.dfm=C:\Users\cicero.dsn.pack.DESKTOP-K6N27LM\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2022/06/08 15:53:09.267,D:\GIT\PROJECTS_DELPHI\projeto_resolvidos_zepa\Aula1\Projeto01\proSaldacao.dproj=C:\Users\cicero.dsn.pack.DESKTOP-K6N27LM\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
