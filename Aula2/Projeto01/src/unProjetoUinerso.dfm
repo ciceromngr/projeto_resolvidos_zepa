@@ -2,7 +2,7 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Form1'
-  ClientHeight = 361
+  ClientHeight = 96
   ClientWidth = 353
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -22,12 +22,5 @@ object Form1: TForm1
     Caption = 'Qual o significado da vida, do universo e tudo mais?'
     TabOrder = 0
     OnClick = Button1Click
-  end
-  object mmoLinesUniverse: TMemo
-    Left = 24
-    Top = 72
-    Width = 305
-    Height = 169
-    TabOrder = 1
   end
 end

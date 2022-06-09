@@ -9,7 +9,6 @@ uses
 type
   TForm1 = class(TForm)
     Button1: TButton;
-    mmoLinesUniverse: TMemo;
     procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
