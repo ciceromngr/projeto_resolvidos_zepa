@@ -81,7 +81,7 @@
 
 ### Qual analogia usamos para representar a memória do computador, seus espaços, e conteúdos?
 
-- agente diz que ele parace com um grande armario vazio, e quando declaramos uma variavel um espaco e reservado para aquela variavel, e quando atribuimos algum valor para a variavel, altomaticamente nesse espaco reservado fica armazenado o valor.  
+- Que ele parace com um grande armario vazio, e quando declaramos uma variavel um espaco e reservado para aquela variavel, e quando atribuimos algum valor para a variavel, altomaticamente nesse espaco reservado fica armazenado o valor.  
 
 ### O que são tipos de dados? Descreva os tipos de dados primitivos em Delphi, com o nome do tipo de informação e sua finalidade de armazenamento 
 - tipo de dados nada mais é do que algo do mundo real que pode ser representado computacionalmente, exe: os numeros que pertecem ao conjunto dos numeros inteiros ou reais, letras, caracteres especiais, acentuação, pontuação, palavras, dentre outros.
