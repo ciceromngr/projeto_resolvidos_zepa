@@ -148,10 +148,8 @@
         end;
 
 ### Qual a diferença entre o ponto e a vírgula em programação?
-- o ponto e vírgula indica se um bloco ou instrução de código vai parar no caso do Delphi; 
+- Vírgula em programação é usada como separador. Ponto é usado para decimais
 
-        AllocConsole; 
-        // esse trecho de comando é lido e ao chegar no ';' ele entende que aquela instrução acabou
 ### O comando de escrita permite “misturar” vários tipos de dados? Justifique.
 - Sim, por que Ele faz a conversão dos tipos dados para o tipo String, mesmo que seja um Numero ele vai ser do tipo caractere
 ### Para quê usamos comentários na programação?
