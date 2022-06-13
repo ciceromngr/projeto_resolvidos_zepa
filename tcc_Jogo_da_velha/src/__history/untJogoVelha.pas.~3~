@@ -1,0 +1,83 @@
+unit untJogoVelha;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    btnNovoJogo: TButton;
+    btnBloco1: TButton;
+    Label1: TLabel;
+    lblVezJogador: TLabel;
+    btnBloco2: TButton;
+    btnBloco3: TButton;
+    btnBloco4: TButton;
+    btnBloco5: TButton;
+    btnBloco6: TButton;
+    btnBLoco7: TButton;
+    btnBloco8: TButton;
+    btnBloco9: TButton;
+    procedure btnNovoJogoClick(Sender: TObject);
+    procedure btnBloco1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+    VezJogador  : string;
+    Tabuleiro   : Array[0..2, 0..2] of string;
+  public
+    { Public declarations }
+    procedure EstadoInicialJogo;
+  end;
+
+const
+  Jogadores   : Array[0..1] of String = ('X', 'O');
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.btnBloco1Click(Sender: TObject);
+begin
+  if VezJogador = 'X' then
+  begin
+    btnBloco1.Caption := VezJogador;
+    VezJogador := Jogadores[1];
+    btnBloco1.Enabled := False;
+  end;
+end;
+
+procedure TForm1.btnNovoJogoClick(Sender: TObject);
+begin
+  EstadoInicialJogo();
+end;
+
+procedure TForm1.EstadoInicialJogo;
+begin
+    // Setando o jogador para o jogador X
+  lblVezJogador.Caption := Jogadores[0];
+  VezJogador := Jogadores[0];
+
+  // Limpando os Captions dos botoes
+  btnBloco1.Caption := '';
+  btnBloco2.Caption := '';
+  btnBloco3.Caption := '';
+  btnBloco4.Caption := '';
+  btnBloco5.Caption := '';
+  btnBloco6.Caption := '';
+  btnBLoco7.Caption := '';
+  btnBloco8.Caption := '';
+  btnBloco9.Caption := '';
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  EstadoInicialJogo();
+end;
+
+end.

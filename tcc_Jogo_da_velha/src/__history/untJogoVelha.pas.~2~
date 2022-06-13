@@ -1,0 +1,50 @@
+unit untJogoVelha;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    btnNovoJogo: TButton;
+    btnBloco1: TButton;
+    Label1: TLabel;
+    lblVezJogador: TLabel;
+    btnBloco2: TButton;
+    btnBloco3: TButton;
+    btnBloco4: TButton;
+    btnBloco5: TButton;
+    btnBloco6: TButton;
+    btnBLoco7: TButton;
+    btnBloco8: TButton;
+    btnBloco9: TButton;
+    procedure btnNovoJogoClick(Sender: TObject);
+  private
+    { Private declarations }
+    VezDoJogador: String;
+    Tabuleiro   : Array of Array of string;
+  public
+    { Public declarations }
+  end;
+
+const
+  Jogadores   : Array[0..1] of String = ('X', 'O');
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.btnNovoJogoClick(Sender: TObject);
+var
+  LLoopComponents : integer;
+  VerificarButtonNovoJogo: Boolean;
+begin
+  lblVezJogador.Caption := Jogadores[0];
+
+end;
+end.

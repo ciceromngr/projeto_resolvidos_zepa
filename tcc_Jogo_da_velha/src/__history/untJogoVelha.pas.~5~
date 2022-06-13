@@ -1,0 +1,360 @@
+unit untJogoVelha;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons;
+
+type
+  TForm1 = class(TForm)
+    btnBloco1: TButton;
+    Label1: TLabel;
+    lblVezJogador: TLabel;
+    btnBloco2: TButton;
+    btnBloco3: TButton;
+    btnBloco4: TButton;
+    btnBloco5: TButton;
+    btnBloco6: TButton;
+    btnBLoco7: TButton;
+    btnBloco8: TButton;
+    btnBloco9: TButton;
+    sbtnNovoJogo: TSpeedButton;
+    procedure btnBloco1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure btnBloco2Click(Sender: TObject);
+    procedure btnBloco3Click(Sender: TObject);
+    procedure btnBloco4Click(Sender: TObject);
+    procedure btnBloco5Click(Sender: TObject);
+    procedure btnBloco6Click(Sender: TObject);
+    procedure btnBLoco7Click(Sender: TObject);
+    procedure btnBloco8Click(Sender: TObject);
+    procedure btnBloco9Click(Sender: TObject);
+    procedure sbtnNovoJogoClick(Sender: TObject);
+  private
+    { Private declarations }
+    VezJogador  : string;
+    Tabuleiro   : Array[0..2, 0..2] of string;
+  public
+    { Public declarations }
+    procedure EstadoInicialJogo;
+    procedure SetarOJogadorAtual(Jogador: integer);
+    procedure SequenciaVencedoras;
+  end;
+
+const
+  Jogadores   : Array[0..1] of String = ('X', 'O');
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.btnBloco1Click(Sender: TObject);
+begin
+  if VezJogador = Jogadores[0] then
+  begin
+    btnBloco1.Caption := VezJogador;
+    btnBloco1.Enabled := False;
+    Tabuleiro[0,0] := VezJogador;
+    SequenciaVencedoras();
+    SetarOJogadorAtual(1); // jogador 0
+  end
+  else if VezJogador = Jogadores[1] then
+  begin
+    btnBloco1.Caption := VezJogador;
+    btnBloco1.Enabled := False;
+    Tabuleiro[0,0] := VezJogador;
+    SequenciaVencedoras();
+    SetarOJogadorAtual(0); // jogador X
+  end;
+
+end;
+
+procedure TForm1.btnBloco2Click(Sender: TObject);
+begin
+  if VezJogador = Jogadores[0] then
+  begin
+    btnBloco2.Caption := VezJogador;
+    btnBloco2.Enabled := False;
+    Tabuleiro[0,1] := VezJogador;
+    SequenciaVencedoras();
+    SetarOJogadorAtual(1);
+  end
+  else if VezJogador = Jogadores[1] then
+  begin
+    btnBloco2.Caption := VezJogador;
+    btnBloco2.Enabled := False;
+    Tabuleiro[0,1] := VezJogador;
+    SequenciaVencedoras();
+    SetarOJogadorAtual(0);
+  end;
+end;
+
+procedure TForm1.btnBloco3Click(Sender: TObject);
+begin
+  if VezJogador = Jogadores[0] then
+  begin
+    btnBloco3.Caption := VezJogador;
+    btnBloco3.Enabled := False;
+    Tabuleiro[0,2] := VezJogador;
+    SequenciaVencedoras();
+    SetarOJogadorAtual(1);
+  end
+  else if VezJogador = Jogadores[1] then
+  begin
+    btnBloco3.Caption := VezJogador;
+    btnBloco3.Enabled := False;
+    Tabuleiro[0,2] := VezJogador;
+    SequenciaVencedoras();
+    SetarOJogadorAtual(0);
+  end;
+end;
+
+procedure TForm1.btnBloco4Click(Sender: TObject);
+begin
+  if VezJogador = Jogadores[0] then
+  begin
+    btnBloco4.Caption := VezJogador;
+    btnBloco4.Enabled := False;
+    Tabuleiro[1,0] := VezJogador;
+    SequenciaVencedoras();
+    SetarOJogadorAtual(1);
+  end
+  else if VezJogador = Jogadores[1] then
+  begin
+    btnBloco4.Caption := VezJogador;
+    btnBloco4.Enabled := False;
+    Tabuleiro[1,0] := VezJogador;
+    SequenciaVencedoras();
+    SetarOJogadorAtual(0);
+  end;
+end;
+
+procedure TForm1.btnBloco5Click(Sender: TObject);
+begin
+  if VezJogador = Jogadores[0] then
+  begin
+    btnBloco5.Caption := VezJogador;
+    btnBloco5.Enabled := False;
+    Tabuleiro[1,1] := VezJogador;
+    SequenciaVencedoras();
+    SetarOJogadorAtual(1);
+  end
+  else if VezJogador = Jogadores[1] then
+  begin
+    btnBloco5.Caption := VezJogador;
+    btnBloco5.Enabled := False;
+    Tabuleiro[1,1] := VezJogador;
+    SequenciaVencedoras();
+    SetarOJogadorAtual(0);
+  end;
+end;
+
+procedure TForm1.btnBloco6Click(Sender: TObject);
+begin
+  if VezJogador = Jogadores[0] then
+  begin
+    btnBloco6.Caption := VezJogador;
+    btnBloco6.Enabled := False;
+    Tabuleiro[1,2] := VezJogador;
+    SequenciaVencedoras();
+    SetarOJogadorAtual(1);
+  end
+  else if VezJogador = Jogadores[1] then
+  begin
+    btnBloco6.Caption := VezJogador;
+    btnBloco6.Enabled := False;
+    Tabuleiro[1,2] := VezJogador;
+    SequenciaVencedoras();
+    SetarOJogadorAtual(0);
+  end;
+end;
+
+procedure TForm1.btnBLoco7Click(Sender: TObject);
+begin
+  if VezJogador = Jogadores[0] then
+  begin
+    btnBloco7.Caption := VezJogador;
+    btnBloco7.Enabled := False;
+    Tabuleiro[2,0] := VezJogador;
+    SequenciaVencedoras();
+    SetarOJogadorAtual(1);
+  end
+  else if VezJogador = Jogadores[1] then
+  begin
+    btnBloco7.Caption := VezJogador;
+    btnBloco7.Enabled := False;
+    Tabuleiro[2,0] := VezJogador;
+    SequenciaVencedoras();
+    SetarOJogadorAtual(0);
+  end;
+end;
+
+procedure TForm1.btnBloco8Click(Sender: TObject);
+begin
+  if VezJogador = Jogadores[0] then
+  begin
+    btnBloco8.Caption := VezJogador;
+    btnBloco8.Enabled := False;
+    Tabuleiro[2,1] := VezJogador;
+    SequenciaVencedoras();
+    SetarOJogadorAtual(1);
+  end
+  else if VezJogador = Jogadores[1] then
+  begin
+    btnBloco8.Caption := VezJogador;
+    btnBloco8.Enabled := False;
+    Tabuleiro[2,1] := VezJogador;
+    SequenciaVencedoras();
+    SetarOJogadorAtual(0);
+  end;
+end;
+
+procedure TForm1.btnBloco9Click(Sender: TObject);
+begin
+  if VezJogador = Jogadores[0] then
+  begin
+    btnBloco9.Caption := VezJogador;
+    btnBloco9.Enabled := False;
+    Tabuleiro[2,2] := VezJogador;
+    SequenciaVencedoras();
+    SetarOJogadorAtual(1);
+  end
+  else if VezJogador = Jogadores[1] then
+  begin
+    btnBloco9.Caption := VezJogador;
+    btnBloco9.Enabled := False;
+    Tabuleiro[2,2] := VezJogador;
+    SequenciaVencedoras();
+    SetarOJogadorAtual(0);
+  end;
+end;
+
+procedure TForm1.EstadoInicialJogo;
+var
+  Linha, Coluna : integer;
+begin
+    // Setando o jogador para o jogador X
+  lblVezJogador.Caption := Jogadores[0];
+  VezJogador := Jogadores[0];
+
+  // Limpando os Captions dos botoes
+  btnBloco1.Caption := '';
+  btnBloco1.Enabled := True;
+
+  btnBloco2.Caption := '';
+  btnBloco2.Enabled := True;
+
+  btnBloco3.Caption := '';
+  btnBloco3.Enabled := True;
+
+  btnBloco4.Caption := '';
+  btnBloco4.Enabled := True;
+
+  btnBloco5.Caption := '';
+  btnBloco5.Enabled := True;
+
+  btnBloco6.Caption := '';
+  btnBloco6.Enabled := True;
+
+  btnBLoco7.Caption := '';
+  btnBloco7.Enabled := True;
+
+  btnBloco8.Caption := '';
+  btnBloco8.Enabled := True;
+
+  btnBloco9.Caption := '';
+  btnBloco9.Enabled := True;
+
+  for Linha := 0 to 2 do
+    for Coluna := 0 to 2 do
+      Tabuleiro[Linha, Coluna] := '';
+
+
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  EstadoInicialJogo();
+end;
+
+procedure TForm1.sbtnNovoJogoClick(Sender: TObject);
+begin
+  EstadoInicialJogo();
+end;
+
+procedure TForm1.SequenciaVencedoras;
+var
+  Linha, Coluna : integer;
+begin
+  {
+    X | X | X
+  }
+  if (Tabuleiro[0,0] = VezJogador) and (Tabuleiro[0,1] = VezJogador) and (Tabuleiro[0,2] = VezJogador) then
+    begin
+     ShowMessage('Vitoria!!');
+    end
+
+  else if (Tabuleiro[1,0] = VezJogador) and (Tabuleiro[1,1] = VezJogador) and (Tabuleiro[1,2] = VezJogador) then
+   begin
+    ShowMessage('Vitoria!!');
+   end
+
+  else if (Tabuleiro[2,0] = VezJogador) and (Tabuleiro[2,1] = VezJogador) and (Tabuleiro[2,2] = VezJogador) then
+   begin
+    ShowMessage('Vitoria!!');
+   end
+
+  {
+    X |
+    X |
+    X |
+  }
+
+  else if (Tabuleiro[0,0] = VezJogador) and (Tabuleiro[1,0] = VezJogador) and (Tabuleiro[2,0] = VezJogador) then
+   begin
+    ShowMessage('Vitoria!!');
+   end
+
+  else if (Tabuleiro[0,1] = VezJogador) and (Tabuleiro[1,1] = VezJogador) and (Tabuleiro[2,1] = VezJogador) then
+   begin
+    ShowMessage('Vitoria!!');
+   end
+
+  else if (Tabuleiro[0,2] = VezJogador) and (Tabuleiro[1,2] = VezJogador) and (Tabuleiro[2,2] = VezJogador) then
+   begin
+    ShowMessage('Vitoria!!');
+   end
+
+   {
+    X | O |
+    O | X |
+      | O | X
+   }
+   else if (Tabuleiro[0,0] = VezJogador) and (Tabuleiro[1,1] = VezJogador) and (Tabuleiro[2,2] = VezJogador) then
+   begin
+    ShowMessage('Vitoria!!');
+   end
+
+   {
+      | O | X
+    O | X |
+    X | O |
+   }
+
+   else if (Tabuleiro[0,2] = VezJogador) and (Tabuleiro[1,1] = VezJogador) and (Tabuleiro[2,0] = VezJogador) then
+   begin
+    ShowMessage('Vitoria!!');
+   end;
+end;
+
+procedure TForm1.SetarOJogadorAtual(Jogador: integer);
+begin
+  VezJogador := Jogadores[Jogador];
+  lblVezJogador.Caption := Jogadores[Jogador];
+end;
+
+end.
