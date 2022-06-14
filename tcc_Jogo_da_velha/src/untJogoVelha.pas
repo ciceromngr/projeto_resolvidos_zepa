@@ -129,15 +129,23 @@ begin
   SetarOJogadorAtual(VezJogador);
 end;
 
+{
+  Nesta function(ClickBotao) eu capturo o botao que eu cliquei ,
+  seto o caption do botao para o jogador atual e o desativo,
+  tambem enumerei as tags dos botoes e coloquei dentro da estrutura
+  escolha tag caso for 1 ou 2 ... dependendo da tag eu posso organizar o meu
+  tabuleiro colocando-os nas posições corretas, incremento a jogada, e verifico se
+  o tem algum vencedor pelas sequencias vencedoras.
+}
 procedure TForm1.ClickBotao(Sender: TObject);
-var 
+var
   Linha, Coluna : integer;
 begin
   TButton(Sender).Caption := VezJogador;
   TButton(Sender).Enabled := False;
 
   case TButton(Sender).Tag of
-    1: begin 
+    1: begin
       Tabuleiro[0,0] := VezJogador;
       inc(Jogada);
       SequenciaVencedoras();
@@ -187,6 +195,11 @@ begin
   end;
 end;
 
+{
+  Nesta Function(DesativarOsBotoes) faco um laco for percorrendo os components do meu form
+  e verifico se o tipo da classe é TButton, e passo/seto/atribuo o Enabled para
+  false
+}
 procedure TForm1.DesativarOsBotoes;
 var   
   Componente: integer;
@@ -196,15 +209,21 @@ begin
       TButton(Components[Componente]).Enabled := False;
 end;
 
+{
+  Função(EstadoInicialJogo) sem return para alterar o status atual para inicial,
+  ou seja , reseta os components do meu form , quanto a jogada, e os placares
+}
 procedure TForm1.EstadoInicialJogo;
 begin
   // Setando o jogador para o jogador X
   lblVezJogador.Caption := Jogadores[0];
-  VezJogador := Jogadores[0];
-  Jogada := 0;
+  VezJogador            := Jogadores[0];
+
+  Jogada  := 0; // Este manitora se todas as jogadas foram feitas
   PlacarX := 0;
   PlacarO := 0;
 
+  // Alterando o caption das lbl para os pontos iniciais
   lblPontosX.Caption := '0';
   lblPontosO.Caption := '0';
 
@@ -215,11 +234,20 @@ begin
   SetarOTabuleiro();
 end;
 
+{
+  Nesse Trecho(FormCreate) de codigo assim que o form criado eu altero o estado do jogo
+  para inicial.
+}
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   EstadoInicialJogo();
 end;
 
+{
+  Nesta function(ReiniciarOsBotoes) sem return eu varro os components do meu form
+  e verifico se eles tem um tipo de classe Tbutton, assim para cada
+  button do meu form eu reseto os captions para vazio e reativo os botoes
+}
 procedure TForm1.ReiniciarOsBotoes;
 var 
   Componente: integer;
@@ -234,11 +262,21 @@ begin
   end;
 end;
 
+{
+ Esta função(sbtnNovoJogoClick) reinicia todo o estado do jogo
+}
 procedure TForm1.sbtnNovoJogoClick(Sender: TObject);
 begin
   EstadoInicialJogo();
 end;
 
+{
+  Nesta função(SequenciaVencedoras) eu crio a logica das posições vencedoras
+  do tabuleiro, se cair em uma dessas logicas o programa Desativa os botoes para
+  não permitir que a pessoa continue jogando apos o termino, seto o placar com a
+  função(SetarOPlacar) passando o jogador vencedor, e mostro um pop-up de
+  vitoria.
+}
 procedure TForm1.SequenciaVencedoras;
 var
   Linha, Coluna : integer;
@@ -249,22 +287,22 @@ begin
   if (Tabuleiro[0,0] = VezJogador) and (Tabuleiro[0,1] = VezJogador) and (Tabuleiro[0,2] = VezJogador) then
     begin
       DesativarOsBotoes();
+      ShowMessage(Format('O jogador %s foi o vencedor!',[VezJogador]));
       SetarOPlacar(VezJogador);
-      ShowMessage('Vitoria!!');
     end
 
   else if (Tabuleiro[1,0] = VezJogador) and (Tabuleiro[1,1] = VezJogador) and (Tabuleiro[1,2] = VezJogador) then
    begin
       DesativarOsBotoes();
+      ShowMessage(Format('O jogador %s foi o vencedor!',[VezJogador]));
       SetarOPlacar(VezJogador);
-      ShowMessage('Vitoria!!');
    end
 
   else if (Tabuleiro[2,0] = VezJogador) and (Tabuleiro[2,1] = VezJogador) and (Tabuleiro[2,2] = VezJogador) then
    begin
       DesativarOsBotoes();
+      ShowMessage(Format('O jogador %s foi o vencedor!',[VezJogador]));
       SetarOPlacar(VezJogador);
-      ShowMessage('Vitoria!!');
    end
 
   {
@@ -276,22 +314,22 @@ begin
   else if (Tabuleiro[0,0] = VezJogador) and (Tabuleiro[1,0] = VezJogador) and (Tabuleiro[2,0] = VezJogador) then
    begin
       DesativarOsBotoes();
+      ShowMessage(Format('O jogador %s foi o vencedor!',[VezJogador]));
       SetarOPlacar(VezJogador);
-      ShowMessage('Vitoria!!');
    end
 
   else if (Tabuleiro[0,1] = VezJogador) and (Tabuleiro[1,1] = VezJogador) and (Tabuleiro[2,1] = VezJogador) then
    begin
       DesativarOsBotoes();
+      ShowMessage(Format('O jogador %s foi o vencedor!',[VezJogador]));
       SetarOPlacar(VezJogador);
-      ShowMessage('Vitoria!!');
    end
 
   else if (Tabuleiro[0,2] = VezJogador) and (Tabuleiro[1,2] = VezJogador) and (Tabuleiro[2,2] = VezJogador) then
    begin
       DesativarOsBotoes();
+      ShowMessage(Format('O jogador %s foi o vencedor!',[VezJogador]));
       SetarOPlacar(VezJogador);
-      ShowMessage('Vitoria!!');
    end
 
    {
@@ -302,8 +340,8 @@ begin
    else if (Tabuleiro[0,0] = VezJogador) and (Tabuleiro[1,1] = VezJogador) and (Tabuleiro[2,2] = VezJogador) then
    begin
       DesativarOsBotoes();
+      ShowMessage(Format('O jogador %s foi o vencedor!',[VezJogador]));
       SetarOPlacar(VezJogador);
-      ShowMessage('Vitoria!!');
    end
 
    {
@@ -315,17 +353,25 @@ begin
    else if (Tabuleiro[0,2] = VezJogador) and (Tabuleiro[1,1] = VezJogador) and (Tabuleiro[2,0] = VezJogador) then
    begin
       DesativarOsBotoes();
+      ShowMessage(Format('O jogador %s foi o vencedor!',[VezJogador]));
       SetarOPlacar(VezJogador);
-      ShowMessage('Vitoria!!');
    end
-   {}
+   {
+    Se as jogadas chegarem ate 9 siginifica que não houve vencedores
+   }
    else if Jogada = 9 then
    begin
       SetarOPlacar('');
-      ShowMessage('Empate!!');
+      ShowMessage('Empate! !');
    end;
 end;
 
+{
+  Nesta Function(SetarOJogadorAtual) ela recebe por parametro o jogador atual
+  para fazer a troca para o proximo jogador, apos o final se nao for reiniciado o
+  jogo , o jogador atual é quem vai comecar , tanto pode ser o X quanto o O,
+  alem de setar o caption da label vezJogador
+}
 procedure TForm1.SetarOJogadorAtual(jogador: string);
 begin
   if jogador = Jogadores[0] then
@@ -340,13 +386,22 @@ begin
   end;
 end;
 
+{
+  Nesta function(SetarOPlacar) eu recebo por parametro o jogador vencedor,
+  nesta etapa eu faco uma pequena verificação , do parametro passado,
+  apos a verificalção faco o incremento no placar , altero o lbl que é responsavel
+  por mostrar o placar, faco uma pausa de 100ms, seto meu tabuleiro ou seja , deixo
+  as positions do meu array zeradas , reinicio os botoes, para que eles voltem a
+  estar com enable := true, e seto o placar, que é responsavel pela quantidade de
+  jogadas
+}
 procedure TForm1.SetarOPlacar(jogador: string);
 begin
   if jogador = Jogadores[0] then
   begin
     Inc(PlacarX);
     lblPontosX.Caption := IntToStr(PlacarX);
-    Sleep(200);
+    Sleep(100);
     SetarOTabuleiro();
     ReiniciarOsBotoes();
     Jogada := 0;
@@ -355,20 +410,25 @@ begin
   begin
     Inc(PlacarO);
     lblPontosO.Caption := IntToStr(PlacarO);
-    Sleep(200);
+    Sleep(100);
     SetarOTabuleiro();
     ReiniciarOsBotoes();
     Jogada := 0;
   end
   else 
   begin
-    Sleep(200);
+    Sleep(100);
     SetarOTabuleiro();
     ReiniciarOsBotoes();
-    Jogada := 0; 
+    Jogada := 0;
   end;
 end;
 
+{
+ Nesta Function(SetarOTabuleiro) eu percorro minhas linhas e colunas , para
+ zerar em cada posicao, fazendo com que meu array de tabuleiros ,
+ fique "vazio"
+}
 procedure TForm1.SetarOTabuleiro;
 var
   Linha, Coluna : integer;
